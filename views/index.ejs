@@ -1,0 +1,12 @@
+<script src="/socket.io/socket.io.js"></script>
+
+<h2>Welcome to Universe <%= universe %></h2>
+
+<script>
+  var socket = io.connect('http://localhost:3000');
+
+  socket.on('connected', function(data){
+    alert('Connected to universe: ' + data.server);
+  });
+
+</script>
