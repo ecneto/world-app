@@ -4,20 +4,25 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 var Universe = require('./models/universe');
+var Zone = require('./models/zone');
+var FizzBuzzActor = require('./models/fizzbuzz_actor');
 
 var universe = new Universe('Alpha');
 console.log('Initialized Universe ' + universe.getName());
 
+var zones = [new Zone("Red Zone"), new Zone("Blue Zone")];
+zones.forEach( function(zone){
+    universe.addZone(zone);
+  });
+
+zones[0].addActor(new FizzBuzzActor("John"));
+zones[1].addActor(new FizzBuzzActor("Jim"));
+
+universe.start();
+
+
 var clients = [];
 var totalClients = 0;
-
-setInterval(function(){
-  var clientString = 'clients: ';
-  clients.forEach(function(c){
-    clientString += c.username;
-  });
-  console.log(clientString);
-}, 1000);
 
 io.on('connection', function(client){
   console.log('Client Connected.');

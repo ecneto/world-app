@@ -7,3 +7,7 @@ function Actor (name) {
 Actor.prototype.getName = function (){
   return this.name;
 };
+
+Actor.prototype.step = function(){
+  // Do Something.
+}
