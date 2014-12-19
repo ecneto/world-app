@@ -4,9 +4,9 @@ EntityActor = require('./entity_actor');
 var util = require('util');
 
 util.inherits(Ball, EntityActor);
-function Ball (name, x, y) {
+function Ball (name, x, y, dir) {
   EntityActor.call(this, name, x, y);
-  this.direction = 1;
+  this.direction = dir;
 };
 
 Ball.prototype.step = function(){
