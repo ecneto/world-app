@@ -3,20 +3,20 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-var Universe = require('./models/universe');
-var Zone = require('./models/zone');
-var FizzBuzzActor = require('./models/fizzbuzz_actor');
+
+var Universe = require('./objects/universe');
+var MapZone = require('./objects/map_zone');
+var Ball = require('./objects/ball');
 
 var universe = new Universe('Alpha');
 console.log('Initialized Universe ' + universe.getName());
 
-var zones = [new Zone("Red Zone"), new Zone("Blue Zone")];
+var zones = [new MapZone("Red Zone", 0)];
 zones.forEach( function(zone){
     universe.addZone(zone);
   });
 
-zones[0].addActor(new FizzBuzzActor("John"));
-zones[1].addActor(new FizzBuzzActor("Jim"));
+zones[0].addActor(new Ball("Soccer Ball", 3, 3));
 
 universe.start();
 

@@ -4,6 +4,7 @@ Actor = require('./actor');
 
 FizzBuzzActor.prototype.__proto__ = Actor.prototype;
 function FizzBuzzActor (name) {
+  Actor.call(this, name);
   this.name = name;
   this.counter = 0;
 };
