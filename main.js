@@ -20,10 +20,6 @@ zones[0].addActor(new Ball("@Soccer Ball", 3, 3, 1));
 zones[0].addActor(new Ball("%Basket Ball", 7, 5, 3));
 zones[0].addActor(new Ball(".Bouncy Ball", 5, 6, 1));
 zones[0].addActor(new Ball("&Foot Ball", 7, 2, 1));
-zones[0].addActor(new Ball("!", 3, 3, 2));
-zones[0].addActor(new Ball("$", 5, 3, 2));
-zones[0].addActor(new Ball("*", 6, 3, 2));
-zones[0].addActor(new Ball("^", 7, 3, 2));
 
 universe.start();
 
