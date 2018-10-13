@@ -4,6 +4,8 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 
+app.set('port', process.env.port || 3000);
+
 var Universe = require('./objects/universe');
 var MapZone = require('./objects/map_zone');
 var Ball = require('./objects/ball');
@@ -40,5 +42,6 @@ app.get('/', function(request, response){
   response.render('index.ejs');
 });
 
-server.listen(3000);
-console.log("Listening on port 3000");
+server.listen(app.get('port'), function(){
+  console.log('Now listening on Port ' + app.get('port'));
+});
